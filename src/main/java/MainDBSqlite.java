@@ -7,6 +7,8 @@ public class MainDBSqlite {
     private static PreparedStatement pStatement;
 
     public static void main(String[] args) {
+        setConnection();
+        createTable("students2", 3);
 
     }
 
@@ -35,7 +37,7 @@ public class MainDBSqlite {
      * @param sqliteCommand команда по созданию колонок
      */
 
-    public void createTable(String tableName, String sqliteCommand) {
+    public static void createTable(String tableName, String sqliteCommand) {
         try {
             statement.executeUpdate("CREATE TABLE " + tableName + " ( " + ") " );
         } catch (SQLException throwables) {
@@ -48,7 +50,7 @@ public class MainDBSqlite {
      * @param tableName название таблицы
      * @param rows количество столбцов
      */
-    public void createTable(String tableName, int rows) {
+    public static void createTable(String tableName, int rows) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             StringBuffer strB = new StringBuffer("CREATE TABLE " + tableName + " ( ");
